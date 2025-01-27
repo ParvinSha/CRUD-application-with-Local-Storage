@@ -50,7 +50,7 @@ function renderMoviesToUI(movies) {
         const movieImgEl = document.createElement('figure');
         movieImgEl.style.backgroundImage = `url(${movie.image})`;
         const rtScoreEl = document.createElement('p');
-        rtScoreEl.innerText = `${movie.rt_score}%`;
+        rtScoreEl.innerHTML = `<span class="rt-score">${movie.rt_score}%</span>`;
         movieImgEl.appendChild(rtScoreEl);
         // lägg till figure på movieContainerEl
         movieContainerEl.appendChild(movieImgEl);
@@ -59,7 +59,7 @@ function renderMoviesToUI(movies) {
         movieTitleEl.innerText = movie.title;
         movieContainerEl.appendChild(movieTitleEl);
         const releaseDateEl = document.createElement('p');
-        releaseDateEl.innerText = movie.release_date;
+        releaseDateEl.innerHTML = movie.release_date;
         movieContainerEl.appendChild(releaseDateEl);
 
         // till sist lägger vi till nya elementet i vår HTML
