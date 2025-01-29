@@ -46,6 +46,12 @@ function renderMoviesToUI(movies) {
     const moviesContainerEl = document.getElementById('movies-container');
     movies.forEach((movie) => {
         const movieContainerEl = document.createElement('article');
+        // på min artikel vill jag ha en eventlyssnare
+        movieContainerEl.addEventListener("click", () => {
+            console.log(movie);
+            // den skall slussa mig till en ny sida
+            window.location.href = `/movieView.html?id=${encodeURIComponent(movie.id)}`;
+        });
         // skapa element för bilden
         const movieImgEl = document.createElement('figure');
         movieImgEl.style.backgroundImage = `url(${movie.image})`;
