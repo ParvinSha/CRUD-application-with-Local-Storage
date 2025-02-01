@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter karaktärer</title>
+    <script src="characterView.js" defer></script>
+    <link rel="stylesheet" href="characterView.css">
+</head>
+
+<body>
+    <header>
+        <h1 id="header-name">Namn på karaktär</h1>
+    </header>
+    <main>
+        <p id="error-message"></p>
+        <img id="character-image">
+        <p id="character-actor"></p>
+        <p id="character-dateOfBirth">Date of birth:</p>
+        <p id="character-gender">Gender:</p>
+        <p id="character-house">House:</p>
+        <p id="character-hairColour">Hair color:</p>
+        <p id="character-eyeColour">Eye color:</p>
+        <h4 style="margin-top: 3rem;">Kommentarer:</h4>
+        <textarea name="kommentarerTxt" id="character-kommentarer" rows="10" cols="50"></textarea>     
+    </main>
+
+    <button id="character-save" title="save" style="color: blue; background-color: lightblue;">Spara</button>
+    <button id="character-delete" title="delete" style="color: red; background-color: lightpink;">Ta bort karaktär</button>
+
+</body>
+
+</html>
