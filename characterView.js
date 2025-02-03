@@ -50,11 +50,11 @@ function renderCharacterToUI() {
         document.getElementById("character-image").setAttribute("src", currentCharacter.image || "placeholder.jpg");
         document.getElementById("header-name").innerText = currentCharacter.name || "Okänd";
 
-        document.getElementById("character-dateOfBirth").innerHTML = `<strong>Födelsedatum:</strong> ${currentCharacter.dateOfBirth || "Okänt"}`;
-        document.getElementById("character-gender").innerHTML = `<strong>Kön:</strong> ${currentCharacter.gender || "Okänt"}`;
-        document.getElementById("character-house").innerHTML = `<strong>Hus:</strong> ${currentCharacter.house || "Okänt"}`;
-        document.getElementById("character-eyeColour").innerHTML = `<strong>Ögonfärg:</strong> ${currentCharacter.eyeColour || "Okänd"}`;
-        document.getElementById("character-hairColour").innerHTML = `<strong>Hårfärg:</strong> ${currentCharacter.hairColour || "Okänd"}`;
+        document.getElementById("character-dateOfBirth").innerHTML = `${currentCharacter.dateOfBirth || "Okänt"}`;
+        document.getElementById("character-gender").innerHTML = `${currentCharacter.gender || "Okänt"}`;
+        document.getElementById("character-house").innerHTML = `${currentCharacter.house || "Okänt"}`;
+        document.getElementById("character-eyeColour").innerHTML = `${currentCharacter.eyeColour || "Okänd"}`;
+        document.getElementById("character-hairColour").innerHTML = `${currentCharacter.hairColour || "Okänd"}`;
 
         document.getElementById("character-kommentarer").value = currentCharacter.kommentarer ?? "";
     } catch (error) {

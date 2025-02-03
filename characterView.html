@@ -4,31 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harry Potter karaktärer</title>
+    <title>Harry Potter Karaktärer</title>
     <script src="characterView.js" defer></script>
     <link rel="stylesheet" href="characterView.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
         <h1 id="header-name">Namn på karaktär</h1>
     </header>
+
     <main>
-        <p id="error-message"></p>
-        <img id="character-image">
-        <p id="character-actor"></p>
-        <p id="character-dateOfBirth">Date of birth:</p>
-        <p id="character-gender">Gender:</p>
-        <p id="character-house">House:</p>
-        <p id="character-hairColour">Hair color:</p>
-        <p id="character-eyeColour">Eye color:</p>
-        <h4 style="margin-top: 3rem;">Kommentarer:</h4>
-        <textarea name="kommentarerTxt" id="character-kommentarer" rows="10" cols="50"></textarea>     
+        <div class="character-card">
+            <p id="error-message"></p>
+            <img id="character-image" class="character-img" alt="Character Image">
+            <h2 id="character-actor" class="actor-name"></h2>
+            <div class="character-info">
+                <p><strong>Födelsedatum:</strong> <span id="character-dateOfBirth"></span></p>
+                <p><strong>Kön:</strong> <span id="character-gender"></span></p>
+                <p><strong>Hus:</strong> <span id="character-house"></span></p>
+                <p><strong>Hårfärg:</strong> <span id="character-hairColour"></span></p>
+                <p><strong>Ögonfärg:</strong> <span id="character-eyeColour"></span></p>
+            </div>
+
+            <h4>Kommentarer:</h4>
+            <textarea id="character-kommentarer" rows="5" placeholder="Skriv din kommentar här..."></textarea>  
+            
+            <div class="button-group">
+                <button id="character-save" title="save">Spara</button>
+                <button id="character-delete" title="delete">Ta bort</button>
+            </div>
+        </div>
     </main>
-
-    <button id="character-save" title="save" style="color: blue; background-color: lightblue;">Spara</button>
-    <button id="character-delete" title="delete" style="color: red; background-color: lightpink;">Ta bort karaktär</button>
-
 </body>
 
 </html>
