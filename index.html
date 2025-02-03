@@ -12,10 +12,52 @@
 <body>
     <header>
         <h1>Harry Potter karaktärer</h1>
+        <button id="character-add" title="save" class="header-btn">Lägg till karaktär </button>
     </header>
     <main>
         <section id="characters-container"></section>
     </main>
+
+<!-- Modal for adding a character -->
+<div id="character-modal" class="modal">
+    <div class="modal-content">
+        <span id="close-modal" class="close">&times;</span>
+        <h2 class="modal-header">Lägg till en ny karaktär</h2>
+        <form id="character-form">
+            <label for="name">Namn:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="gender">Kön:</label>
+            <select id="gender" name="gender" required>
+                <option value="man">Man</option>
+                <option value="kvinna">Kvinna</option>
+            </select>            
+
+            <label for="house">Hus:</label>
+            <input type="text" id="house" name="house">
+
+            <label for="dateOfBirth">Födelsedatum:</label>
+            <input type="date" id="dateOfBirth" name="dateOfBirth">
+
+            <label for="eyeColour">Ögonfärg:</label>
+            <input type="text" id="eyeColour" name="eyeColour">
+
+            <label for="hairColour">Hårfärg:</label>
+            <input type="text" id="hairColour" name="hairColour">
+
+            <label for="actor">Skådespelare:</label>
+            <input type="text" id="actor" name="actor" required>
+
+            <label for="image">Bild-URL:</label>
+            <input type="text" id="image" name="image">
+
+            <button type="submit" id="addCharacterBtn">Lägg till</button>
+            
+        </form>
+    </div>
+</div>
+
+
 </body>
 
 </html>

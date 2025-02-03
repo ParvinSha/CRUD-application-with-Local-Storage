@@ -1,6 +1,9 @@
-console.log("Koden är länkad");
 const BASE_URL = "https://hp-api.onrender.com/api/characters";
+let all_characters = JSON.parse(localStorage.getItem("all_characters")) || [];
 const charactersContainerEl = document.getElementById('characters-container');
+const characterFormEl = document.getElementById('character-form');
+const characterModalEl = document.getElementById('character-modal');
+const closeModalEl = document.getElementById('close-modal');
 
 // Funktion för att visa felmeddelanden i UI:t
 function displayErrorMessage(message) {
@@ -34,8 +37,6 @@ async function fetchCharacters() {
 // Funktion för att kontrollera om data finns i localStorage
 async function checkCharacters() {
     try {
-        let all_characters = JSON.parse(localStorage.getItem("all_characters"));
-        
         if (Array.isArray(all_characters) && all_characters.length > 0) {
             renderCharactersToUI(all_characters);
         } else {
@@ -87,6 +88,43 @@ function renderCharactersToUI(characters) {
         charactersContainerEl.appendChild(characterContainerEl);
     });
 }
+
+// Öppna modalen för att lägga till en karaktär
+document.getElementById("character-add").addEventListener("click", () => {
+    characterModalEl.style.display = "block";
+});
+
+// Stäng modalen
+closeModalEl.addEventListener("click", () => {
+    characterModalEl.style.display = "none";
+});
+
+// Hantera formulärinmatning och lägga till en ny karaktär
+characterFormEl.addEventListener("submit", (event) => {
+    event.preventDefault();
+    try {
+        const formData = new FormData(characterFormEl);
+        const newCharacter = {
+            id: crypto.randomUUID(),
+            name: formData.get("name") || "Okänd",
+            gender: formData.get("gender") || "Okänt",
+            house: formData.get("house") || "Okänt",
+            dateOfBirth: formData.get("dateOfBirth") || "Okänt",
+            eyeColour: formData.get("eyeColour") || "Okänt",
+            hairColour: formData.get("hairColour") || "Okänt",
+            actor: formData.get("actor") || "Okänt",
+            image: formData.get("image") || "https://ik.imagekit.io/hpapi/harry.jpg"
+        };
+
+        all_characters.unshift(newCharacter);
+        localStorage.setItem("all_characters", JSON.stringify(all_characters));
+        renderCharactersToUI(all_characters);
+        characterModalEl.style.display = "none"; // Stäng modalen efter tillägg
+    } catch (error) {
+        console.error(error);
+        displayErrorMessage("Ett fel uppstod vid tilläggning av karaktären.");
+    }
+});
 
 // Kör checkCharacters vid start
 checkCharacters();
