@@ -1,57 +1,86 @@
+Redovisning av Applikationen
 
-# **Individuellt Projekt: CRUD-applikation med Local Storage**
+1. Introduktion till Applikationen
 
-## **Översikt**
-I detta projekt ska du skapa en applikation som använder sig av CRUD-funktionalitet (Create, Read, Update, Delete) tillsammans med Local Storage i webbläsaren. Du får själv välja ett tema för din applikation och använda ett externt API för att hämta data. Tänk på att API:et du använder endast behöver stödja GET-anrop.
+Applikationen hämtar Harry Potter-karaktärer från ett API till en Lokal Storage och ger användarna möjlighet att lägga till saknade karaktärer. Dessutom kan användaren uppdatera vilken karaktär som helst genom att lägga till kommentarer eller ta bort den också.
+Det valda temat är Harry Potter-karaktärer.
 
-## **Projektmål**
-Målet med projektet är att du ska få praktisk erfarenhet av att:
-- Skapa och hantera data med hjälp av Local Storage.
-- Implementera CRUD-funktionalitet i en JavaScript-applikation.
-- Integrera ett externt API för att hämta data.
-- Hantera fel och undantag som kan uppstå i din applikation.
+API-val: "https://hp-api.onrender.com/api/characters" valdes eftersom det innehåller detaljerad information om karaktärer från Harry Potter-serien och är lätt att integrera med JavaScript. Det är också ett publik API och inte kräver någon Access Key, så det är enkelt för andra om de vill ladda ner och köra Applikationen.
 
-## **Temaförslag**
-Du får själv välja ett tema för din applikation. Här är några förslag om du behöver inspiration:
-- **Film-/TV-serie-databas**: Hämta data från ett film-API och lagra dina favoritfilmer.
-- **Receptsamling**: Använd ett API för att hämta recept och spara dina favoriter i Local Storage.
-- **To-Do lista med kategorier**: Skapa en avancerad to-do lista där du kan lägga till, uppdatera och ta bort uppgifter.
 
-## **Projektkrav**
-### **Funktionalitet**
-1. **CRUD-operationer**: Applikationen ska stödja skapande, läsning, uppdatering och borttagning av data och lagra detta i Local Storage.
-2. **API-integration**: Applikationen ska hämta data från ett externt API och visa det för användaren.
-3. **Felhantering**: Du ska implementera grundläggande felhantering, exempelvis genom att visa användarvänliga felmeddelanden vid problem med API-anrop, formulärvalidering eller datahantering.
+2. Översikt av Funktionaliteten
 
-### **Design och Användarupplevelse**
-- Skapa en enkel och intuitiv användargränssnitt (UI) där användaren enkelt kan utföra CRUD-operationer.
-- Använd gärna CSS och eventuella ramverk för att göra din applikation responsiv och estetiskt tilltalande.
+CRUD-operationer
 
-### **Kodkvalitet**
-- Håll din kod välstrukturerad och kommenterad.
-- Använd funktioner och eventuellt moduler för att dela upp din kod i hanterbara delar.
+Create: Användaren kan lägga till en ny karaktär via ett formulär som sparar datan i localStorage.
 
-## **Arbetsgång**
-1. **Planering**: Skapa en wireframe och planera funktionaliteten för din applikation.
-2. **Implementering av Local Storage**: Börja med att implementera CRUD-funktionalitet med Local Storage.
-3. **API-integration**: Hämta och visa data från ditt valda API.
-4. **Felhantering**: Lägg till felhantering för att hantera olika scenarier som kan uppstå.
-5. **Förbättringar**: Lägg till extra funktioner eller förbättra användarupplevelsen.
+Read: Applikationen hämtar karaktärer från API:et eller från localStorage och renderar dem i UI:t.
 
-## **Extra Utmaningar (Frivilligt)**
-Om du känner dig klar med grundkraven och vill utmana dig själv, kan du testa att:
-- Implementera en enkel autentisering för användarna.
-- Lägga till en funktion för att exportera och importera data från Local Storage.
-- Använda ett extra API för att utöka din applikations funktionalitet.
-- Något eget easter egg!
+Update: Användaren kan redigera information om en karaktär, inklusive kommentarer.
 
-## **Inlämning och Presentation**
-- **Deadline**: 3 februari 23:59
-- **Presentation**: Du kommer att få presentera din applikation för klassen, visa upp din lösning och reflektera över vad som var utmanande och vad du har lärt dig.
+Delete: Karaktärer kan tas bort från localStorage, vilket gör att de försvinner från applikationen.
 
-## **Bedömningskriterier**
-- **Funktionalitet**: Hur väl fungerar CRUD-operationerna? Används Local Storage korrekt? Är API:et integrerat på ett bra sätt?
-- **Felhantering**: Hur väl hanteras fel? Får användaren tydliga felmeddelanden vid problem?
-- **Användargränssnitt**: Är applikationen enkel och trevlig att använda?
-- **Kodkvalitet**: Är koden strukturerad och kommenterad på ett begripligt sätt?
+Local Storage
+
+Används för att lagra hämtade karaktärer så att de finns kvar mellan sessioner.
+
+Lagrar även användarskapade karaktärer och eventuella ändringar av data.
+
+API-integration
+
+Data hämtas asynkront från API:et med fetch().
+
+Felhantering säkerställer att en fallback-mekanism används vid problem med API:et.
+
+3. Felhantering och Användarfeedback
+
+Felmeddelanden: Visas i UI om API-anrop misslyckas eller om localStorage innehåller felaktig data.
+
+Formulärvalidering: Säkerställer att användaren fyller i nödvändiga fält innan data sparas.
+
+Undantagshantering: try-catch används för att förhindra att sidan kraschar vid oväntade fel.
+
+4. Användargränssnitt och Design
+
+UI-design: Enkla, klickbara kort som visar karaktärer och deras skådespelare.
+
+Responsivitet: Designad för att fungera på både mobil och desktop.
+
+Estetik: CSS används för att skapa ett visuellt tilltalande gränssnitt, med placeholder-bilder för saknade bilder.
+
+5. Kodstruktur och Kvalitet
+
+Struktur: Koden är uppdelad i funktioner för att vara lättläst och underhållbar.
+
+Kommentarer: Finns i hela koden för att underlätta förståelsen.
+
+Avancerade tekniker:
+
+async/await används för att hantera API-anrop.
+
+try-catch används för felhantering.
+
+localStorage används för att lagra data lokalt.
+
+6. Utmaningar och Lösningar
+
+Local Storage: Problem med att uppdatera och radera objekt löstes genom att använda unika id-värden för varje karaktär.
+
+Felhantering: Användning av try-catch och tydliga felmeddelanden gjorde att applikationen kunde hantera oväntade situationer.
+
+7. Reflektion och Lärdomar
+
+Lärdomar: Bättre förståelse för API-anrop, localStorage och felhantering.
+
+Tekniker och Verktyg: Förbättrad skicklighet i JavaScript, asynkrona anrop och DOM-manipulation.
+
+Förbättringsmöjligheter:
+
+Använda en backend-databas istället för localStorage.
+
+Implementera en sökfunktion för karaktärer.
+
+Förbättra UI med mer interaktiv design och animationer.
+
+Implementera att ha karaktärlista på olika sidor
 

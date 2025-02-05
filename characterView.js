@@ -70,7 +70,7 @@ document.getElementById("character-delete").addEventListener('click', () => {
         
         const filtered = charactersFromLS.filter(character => character.id !== currentCharacter.id);
         localStorage.setItem("all_characters", JSON.stringify(filtered));
-
+        alert("Karaktären har tagits bort.");
         window.location.href = `/index.html`;
     } catch (error) {
         console.error(error);
@@ -91,7 +91,7 @@ document.getElementById("character-save").addEventListener('click', () => {
 
         charactersFromLS.splice(index, 1, currentCharacter);
         localStorage.setItem("all_characters", JSON.stringify(charactersFromLS));
-
+        alert("Karaktären har uppdaterats.");
         window.location.href = `/index.html`;
     } catch (error) {
         console.error(error);

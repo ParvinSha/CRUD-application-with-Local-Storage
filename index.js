@@ -74,7 +74,7 @@ function renderCharactersToUI(characters) {
         characterImgEl.style.backgroundImage = `url(${character.image || 'placeholder.jpg'})`; // Standardbild om ingen finns
         
         const name = document.createElement('p');
-        name.innerHTML = `<span class="rt-score">${character.name || "Okänd"}</span>`;
+        name.innerHTML = `<span class="charactername">${character.name || "Okänd"}</span>`;
         characterImgEl.appendChild(name);
         
         characterContainerEl.appendChild(characterImgEl);
